@@ -4,18 +4,17 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-# Initialize an empty cache
-  inverse <- NULL
-  
-  # Function to set the matrix
-  set <- function(newValue) {
-    x <<- newValue  # Assign the input matrix to 'x'
-    inverse <<- NULL  # Reset the cached inverse
+ inv <- NULL
+  set <- function(y) {
+    x <<- y
+    inv <<- NULL
   }
-  
-  # Function to get the matrix
-  get <- function() {
-          #kaise bhi kralo
+  get <- function() x
+  setinverse <- function(inverse) inv <<- inverse
+  getinverse <- function() inv
+  list(set = set, get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)
 }
 
 
